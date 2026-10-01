@@ -39,6 +39,7 @@ public class ProductosController {
 	}
 	@PostMapping(value="alta",consumes=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Mono<Void>> altaProducto(@RequestBody Producto producto) {
+		producto.setNuevoProducto(true);
 		return new ResponseEntity<>(productosService.altaProducto(producto),HttpStatus.OK);
 	}
 	@DeleteMapping(value="eliminar")
